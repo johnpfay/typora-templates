@@ -353,10 +353,22 @@ tt {
 }
 
 .md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
+    margin-top:10px;
+    padding-bottom:5px;
 }
 
+.md-toc-h3 {
+  display: none;
+}
+.md-toc-h4 {
+  display: none;
+}
+.md-toc-h5 {
+  display: none;
+}
+.md-toc-h1 {
+  display: none;
+}
 .sidebar-tabs {
     border-bottom: none;
 }
