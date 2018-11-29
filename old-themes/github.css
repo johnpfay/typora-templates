@@ -3,7 +3,7 @@
     --control-text-color: #777;
 }
 
-@include-when-export url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
 @font-face {
     font-family: 'Open Sans';
@@ -149,14 +149,13 @@ li>ul {
     margin: 0 0;
 }
 hr {
-    height: 4px;
+    height: 2px;
     padding: 0;
     margin: 16px 0;
     background-color: #e7e7e7;
     border: 0 none;
     overflow: hidden;
     box-sizing: content-box;
-    border-bottom: 1px solid #ddd;
 }
 
 body > h2:first-child {
@@ -211,7 +210,7 @@ ol:last-child {
     margin-bottom: 0;
 }
 blockquote {
-    border-left: 4px solid #dddddd;
+    border-left: 4px solid #dfe2e5;
     padding: 0 15px;
     color: #777777;
 }
@@ -223,22 +222,24 @@ table {
     word-break: initial;
 }
 table tr {
-    border-top: 1px solid #cccccc;
+    border-top: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
-table tr:nth-child(2n) {
+table tr:nth-child(2n),
+thead {
     background-color: #f8f8f8;
 }
 table tr th {
     font-weight: bold;
-    border: 1px solid #cccccc;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
     text-align: left;
     margin: 0;
     padding: 6px 13px;
 }
 table tr td {
-    border: 1px solid #cccccc;
+    border: 1px solid #dfe2e5;
     text-align: left;
     margin: 0;
     padding: 6px 13px;
@@ -252,20 +253,29 @@ table tr td:last-child {
     margin-bottom: 0;
 }
 
-.CodeMirror-gutters {
-    border-right: 1px solid #ddd;
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
 }
 
 .md-fences,
 code,
 tt {
-    border: 1px solid #ddd;
+    border: 1px solid #e7eaed;
     background-color: #f8f8f8;
     border-radius: 3px;
     padding: 0;
-    font-family: Consolas, "Liberation Mono", Courier, monospace;
     padding: 2px 4px 0px 4px;
     font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 4px 2px 4px;
 }
 
 .md-fences {
@@ -275,17 +285,10 @@ tt {
     padding-top: 8px;
     padding-bottom: 6px;
 }
-.task-list{
-	padding-left: 0;
-}
 
-.task-list-item {
-	padding-left:32px;
-}
 
-.task-list-item input {
-  top: 3px;
-  left: 8px;
+.md-task-list-item > input {
+  margin-left: -1.3em;
 }
 
 @media screen and (min-width: 914px) {
@@ -325,6 +328,10 @@ tt {
 	bottom: .375rem;
 }
 
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
 #write>h3.md-focus:before{
 	left: -1.5625rem;
 	top: .375rem;
@@ -342,16 +349,16 @@ tt {
 	top: .285714286rem;
 }
 .md-image>.md-meta {
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;*/
     border-radius: 3px;
-    font-family: Consolas, "Liberation Mono", Courier, monospace;
-    padding: 2px 4px 0px 4px;
+    padding: 2px 0px 0px 4px;
     font-size: 0.9em;
     color: inherit;
 }
 
-.md-tag{
-	color: inherit;
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
 }
 
 .md-toc { 
@@ -375,10 +382,6 @@ tt {
     border-width: 1px;
 }
 
-#md-notification:before {
-    top: 10px;
-}
-
 /** focus mode */
 .on-focus-mode blockquote {
     border-left-color: rgba(85, 85, 85, 0.12);
@@ -400,4 +403,8 @@ header, .context-menu, .megamenu-content, footer{
 
 .md-lang {
     color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
 }

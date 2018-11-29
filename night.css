@@ -6,12 +6,13 @@
     --bg-color:  #363B40;
     --side-bar-bg-color: #2E3033;
     --text-color: #b8bfc6;
-    --code-block-bg-color: inherit;//#f8f8f8;
+
+    --select-text-bg-color:#4a89dc;
 
     --item-hover-bg-color: #0a0d16;
     --control-text-color: #b7b7b7;
     --control-text-hover-color: #eee;
-    --window-border: 1px dashed #9b9b9b;
+    --window-border: 1px solid #555;
 
     --active-file-bg-color: rgb(34, 34, 34);
     --active-file-border-color: #8d8df0;
@@ -22,6 +23,8 @@
     --item-hover-bg-color: #70717d;
     --item-hover-text-color: white;
     --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #4B535A;
 }
 
 html {
@@ -75,7 +78,7 @@ textarea {
 hr {
     height: 2px;
     border: 0;
-    margin: 50px 0 !important;
+    margin: 24px 0 !important;
 }
 
 h1,
@@ -84,7 +87,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lucida Grande", "Corbal", sans-serif;
+    font-family: "Lucida Grande", "Corbel", sans-serif;
     font-weight: normal;
     clear: both;
     -ms-word-wrap: break-word;
@@ -234,6 +237,10 @@ iframe,
     /* 24px */
 }
 
+li > blockquote {
+	margin-bottom: 0;
+}
+
 audio:not([controls]) {
     display: none;
 }
@@ -308,6 +315,15 @@ var {
     font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
 pre.md-fences {
     padding: 10px 30px;
     margin-bottom: 20px;
@@ -316,6 +332,13 @@ pre.md-fences {
 
 .md-fences .code-tooltip {
     bottom: -3.2em;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
 }
 
 code,
@@ -346,10 +369,6 @@ a {
 hr {
     background: #474d54;
     /* variable */
-}
-
-#write>*:first-child {
-    margin-top: 40px;
 }
 
 h1 {
@@ -400,15 +419,15 @@ td {
     padding-left: 0;
 }
 
-.task-list-item {
+.md-task-list-item {
     padding-left: 1.25rem;
 }
 
-.task-list-item input {
-    top: 0.1875rem;
+.md-task-list-item > input {
+    top: auto;
 }
 
-.task-list-item input:before {
+.md-task-list-item > input:before {
     content: "";
     display: inline-block;
     width: 0.875rem;
@@ -417,11 +436,11 @@ td {
     text-align: center;
     border: 1px solid #b8bfc6;
     background-color: #363B40;
-    margin-top: -0.4375rem;
+    margin-top: -0.4rem;
 }
 
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before {
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
     content: '\221A';
     /*◘*/
     font-size: 0.625rem;
@@ -477,7 +496,7 @@ td {
     color: #b8bfc6;
 }
 
-.md-table-edit {
+.ty-table-edit {
     border-top: 1px solid gray;
     background-color: #363B40;
 }
@@ -639,11 +658,14 @@ h6.md-focus .md-attr,
 
 /** UI for electron */
 
-.context-menu {
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
     background-color: #42464A;
 }
 
-.context-menu.dropdown-menu .divider {
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
     background-color: #777777;
 }
 
@@ -770,7 +792,7 @@ footer {
 
 .typora-sourceview-on #toggle-sourceview-btn,
 #footer-word-count:hover,
-.show-word-count #footer-word-count {
+.ty-show-word-count #footer-word-count {
     background: #333333;
 }
 
@@ -785,7 +807,7 @@ footer {
 }
 
 .on-focus-mode .md-end-block:not(.md-focus) img,
-.on-focus-mode .task-list-item:not(.md-focus-container)>input {
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
     opacity: #686868 !important;
 }
 
@@ -811,7 +833,13 @@ footer {
 /*diagrams*/
 #write .md-focus .md-diagram-panel {
     border: 1px solid #ddd;
-    margin-left: -30px;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
 }
 
 .md-diagram-panel-error {
@@ -855,10 +883,6 @@ footer {
     border-top: none;
 }
 
-.sidebar-footer {
-    border-top: 1px solid #555;
-}
-
 .file-node-background {
     height: 32px;
 }
@@ -885,4 +909,15 @@ footer {
 
 #write {
     cursor: -webkit-image-set(url("night/cursor.png") 1x, url("night/cursor@2x.png") 2x) 8 8, auto;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: calc(1rem - 10px);
+    -webkit-appearance: none;
+}
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
 }

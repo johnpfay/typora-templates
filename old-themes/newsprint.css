@@ -1,3 +1,7 @@
+:root {
+	--rawblock-edit-panel-bd: #e5e5e5;
+}
+
 /* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
 
 @include-when-export url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
@@ -37,6 +41,14 @@
 	--active-file-text-color: white;
 	--bg-color: #f3f2ee;
 	--text-color: #1f0909;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+    --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
 }
 
 html {
@@ -68,10 +80,20 @@ html, body {
 	max-width: 40em;
 }
 
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
 ol,
 ul {
 	list-style: none;
 }
+
 blockquote,
 q {
 	quotes: none;
@@ -177,14 +199,6 @@ ul,
 ol {
 	margin: 0 0 1.5em 1.5em;
 }
-ol li {
-	list-style-type: decimal;
-	list-style-position: outside;
-}
-ul li {
-	list-style-type: disc;
-	list-style-position: outside;
-}
 /* tables */
 .md-meta,.md-before, .md-after {
 	color:#999;
@@ -218,10 +232,6 @@ code,
 .md-fences {
 	margin-left: 2em;
 	margin-bottom: 3em;
-}
-
-.md-fences .CodeMirror.CodeMirror-wrap {
-	top: -0.8em;
 }
 
 pre,
@@ -276,7 +286,7 @@ blockquote {
 	border-color: #bababa;
 	color: #656565;
 }
-thead.md-table-edit {
+.ty-table-edit {
 	background-color: transparent;
 }
 thead {
@@ -292,12 +302,12 @@ hr {
 	padding-left: 1rem;
 }
 
-.task-list-item {
+.md-task-list-item {
 	padding-left: 1.5rem;
 	list-style-type: none;
 }
 
-.task-list-item input:before {
+.md-task-list-item > input:before {
 	content: '\221A';
 	display: inline-block;
 	width: 1.25rem;
@@ -308,8 +318,8 @@ hr {
 	background-color: #F3F2EE;
 }
 
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before{
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
 	color: inherit;
 }
 
@@ -483,8 +493,7 @@ header, .context-menu, .megamenu-content, footer {
 }
 
 .md-diagram-panel {
-	margin-left: -1ch;
-	margin-top: 24px;
+	margin-top: 8px;
 }
 
 .file-list-item-file-name {
@@ -504,6 +513,10 @@ header, .context-menu, .megamenu-content, footer {
 	color: black;
 }
 
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
 .file-list-item.active .file-list-item-file-name  {
 	font-weight: bold;
 }
@@ -520,4 +533,19 @@ header, .context-menu, .megamenu-content, footer {
 .file-tree-node.active>.file-node-content{
 	color: white;
 	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 12px);
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
 }

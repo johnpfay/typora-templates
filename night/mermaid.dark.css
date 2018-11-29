@@ -4,6 +4,11 @@
 .mermaid .label {
   color: #323D47;
 }
+
+g.label {
+    color: #333;
+}
+
 .node rect,
 .node circle,
 .node ellipse,
@@ -71,6 +76,9 @@ text.actor {
 .loopText {
   fill: lightgrey;
   stroke: none;
+}
+text>tspan {
+  fill: inherit;
 }
 .loopLine {
   stroke-width: 2;

@@ -101,8 +101,13 @@
     color: #1cc685;
 }
 
-.CodeMirror-selectedtext {
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
     background: #4a89dc;
     color: #fff !important;
     text-shadow: none;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
 }
