@@ -5,6 +5,7 @@ html {
 html, body {
 	margin: auto;
 	background: #fefefe;
+	-webkit-font-smoothing: antialiased;
 }
 body {
 	font-family: "Vollkorn", Palatino, Times;
@@ -12,12 +13,25 @@ body {
 	line-height: 1.4;
 	text-align: justify;
 }
+
 #write {
 	max-width: 960px;
 	margin: 0 auto;
 	margin-bottom: 2em;
 	line-height: 1.53;
 	padding-top: 40px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media print {
+	html {
+		font-size: 13px;
+	}
 }
 
 /* Typography

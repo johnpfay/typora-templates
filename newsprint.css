@@ -1,38 +1,40 @@
-:root {
-	--rawblock-edit-panel-bd: #e5e5e5;
-}
-
 /* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
 
 @include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
 
 /* =========== */
 
+/* pt-serif-regular - latin */
 @font-face {
-    font-family: 'PT Serif';
-    font-style: normal;
-    font-weight: normal;
-    src: local('PT Serif'), local('PTSerif-Regular'), url('./newsprint/pt-serif-v9-latin-regular.woff') format('woff');
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: normal;
+	src: local('PT Serif'), local('PTSerif-Regular'), url('./newsprint/pt-serif-v11-latin-regular.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/* pt-serif-italic - latin */
 @font-face {
-    font-family: 'PT Serif';
-    font-style: italic;
-    font-weight: normal;
-    src: local('PT Serif'), local('PTSerif-Italic'), url('./newsprint/pt-serif-v9-latin-italic.woff') format('woff');
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: normal;
+	src: local('PT Serif Italic'), local('PTSerif-Italic'), url('./newsprint/pt-serif-v11-latin-italic.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
+/* pt-serif-700 - latin */
 @font-face {
-    font-family: 'PT Serif';
-    font-style: normal;
-    font-weight: bold;
-    src: local('PT Serif'), local('PTSerif-Bold'), url('./newsprint/pt-serif-v9-latin-700.woff') format('woff');
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: bold;
+	src: local('PT Serif Bold'), local('PTSerif-Bold'), url('./newsprint/pt-serif-v11-latin-700.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
+/* pt-serif-700italic - latin */
 @font-face {
-    font-family: 'PT Serif';
-    font-style: italic;
-    font-weight: bold;
-    src: local('PT Serif'), local('PTSerif-BoldItalic'), url('./newsprint/pt-serif-v9-latin-700italic.woff') format('woff');
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: bold;
+	src: local('PT Serif Bold Italic'), local('PTSerif-BoldItalic'), url('./newsprint/pt-serif-v11-latin-700italic.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 :root {
@@ -41,9 +43,11 @@
 	--active-file-text-color: white;
 	--bg-color: #f3f2ee;
 	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
 
 	--select-text-bg-color: rgba(32, 43, 51, 0.63);
-    --select-text-font-color: white;
+  --select-text-font-color: white;
 }
 
 pre {
@@ -53,6 +57,7 @@ pre {
 
 html {
 	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
 }
 
 html, body {
@@ -78,6 +83,12 @@ html, body {
 
 #write {
 	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
 }
 
 ol li {
@@ -226,12 +237,18 @@ td {
 code,
 .md-fences {
 	background-color: #dadada;
-	padding-left: 1ch;
-	padding-right: 1ch;
 }
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
 .md-fences {
 	margin-left: 2em;
 	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
 }
 
 pre,
@@ -250,7 +267,7 @@ h1 {
 
 p + ul,
 p + ol{
-	margin-top: -1em;
+	margin-top: .5em;
 }
 
 h3 + ul,
@@ -270,16 +287,12 @@ li > ol {
 	margin-bottom: 0;
 }
 
-li li {
+li ol>li {
 	list-style-type: lower-alpha;
 }
 
-li li li{
+li li ol>li{
 	list-style-type: lower-roman;
-}
-
-li > blockquote {
-	margin-bottom: 0;
 }
 
 h2,
@@ -299,6 +312,12 @@ blockquote {
 	border-color: #bababa;
 	color: #656565;
 }
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
 .ty-table-edit {
 	background-color: transparent;
 }
@@ -549,7 +568,7 @@ header, .context-menu, .megamenu-content, footer {
 }
 
 .md-task-list-item>input {
-	margin-left: -1.6em;
+	margin-left: -1.7em;
 	margin-top: calc(1rem - 12px);
 }
 
@@ -565,4 +584,29 @@ input {
 
 .dropdown-menu .divider {
 	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
 }
