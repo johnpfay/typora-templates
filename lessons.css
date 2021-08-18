@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Open Sans Regular'),url('./github/400.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Open Sans Italic'),url('./github/400i.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Open Sans Bold'),url('./github/700.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: bold;
+    src: local('Open Sans Bold Italic'),url('./github/700i.woff') format('woff');
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+h1 {  font-size: 25px; color: #395998;}
+h2 {  font-size: 20px; color: #395998; margin: 1em 0em 1em 0em;}
+h3 {  font-size: 18px; margin: 0.6em 0em 0.2em 0em; padding-bottom: 0em;}
+h4 {  font-size: 14px; margin: 0.1em 0em 0.1em 0em; padding-bottom: 0em; padding-top: 0.5em}
+h5 {  font-size: 12px;}
+p {  font-size: 12px;padding: 0px; margin: 0.5em 0em 1em 0em;}
+
+ul li, ol li {
+  font-size: 12px;
+  margin-left: 0.15em;
+  margin-top: 0.2em;;
+  margin-bottom: 0.05em;
+  padding-left: 0;
+}
+
+ul {
+  margin: 0.1em;
+}
+
+table,th,td {
+  font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+  font-size: 12px;
+  border-collapse: collapse;
+  #border: 1px solid black;
+}
+
+th {
+	padding: 0.5em;
+	font-weight: bold;
+	text-align: left;	
+	background-color: #99999936;
+}
+
+td {
+    padding: 0.5em;
+    border-bottom: 1px solid #b6b6b6;
+}
+
+table {
+  display: table;
+}
+
+blockquote {
+  border-style: solid;
+  border-width: 1px;
+  background-color: #c4f2f4;
+  margin: 0em;
+  padding: 0.4em;
+}
+
+blockquote > p {
+  margin: 0.1em;
+}
+
+.nav__list {
+  #font-size: 12px;
+}
+
+.nav__items {
+  #font-size: 14px;
+}
+
+.nav__sub-title {
+  font-size: 14px;
+  color: #012169;
+}
+
+.sidebar p, .sidebar li {
+  font-size: 12px;
+}
+
+.greedy-nav a {
+  font-size: 22px;
+  display: block;
+  margin: 0 1rem;
+}
+
+/*masthead title
+.site-title {
+  text-align: center;
+  line-height: 1em;
+  padding: 0em 1em 0em 1em;
+  text-shadow:
+      1px 1px 0 #000;
+}
+.masthead__inner-wrap {
+  padding: 0.5em 1em 0.5em 1em;
+}*/
+
+/* code block */
+pre {
+  overflow-x: auto; /* add scrollbars to wide code blocks*/
+  background: #dddddd;
+  color:black;
+  border: 0px solid #999;
+  display: block;
+  padding: 3px;
+  line-height: 1;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  border: 1px;
+}
+
+div.highlighter-rouge > pre, div.highlighter-rouge pre.highlight, figure.highlight > pre, figure.highlight pre.highlight{
+  font-size: 12px;
+  background: #eeeeee;
+}
+
+p > code,
+a > code,
+li > code,
+figcaption > code,
+td > code {
+  padding-top: 0.0rem;
+  padding-bottom: 0.0rem;
+  background: #dddddd;
+  border-radius:0;
+  font-size: 1em;
+
+  &:before,
+  &:after {
+    letter-spacing: -0.2em;
+    content: "\00a0"; /* non-breaking space*/
+  }
+}
+
+.language-raw {
+  padding-left: 40px;
+  font-size: 11px;
+}
+
+/*Python code colors
+.highlight .k, .highlight .kn{
+  color: #008000;
+}
+.highlight .s {
+  color: #BA2121;
+}
+.highlight .n, .highlight .nn {
+  color: black;
+}
+.highlight .o {
+  color: #AA22FF;
+}
+*/
